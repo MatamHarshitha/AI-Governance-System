@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-dotenv
+
+
+pymysql
+
+
+redis
+requests
+openai
+httpx
