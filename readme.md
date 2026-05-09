@@ -11,6 +11,7 @@ Problem Being Solved
 
 Calling AI APIs directly from a web request is usually a bad idea in production systems because:
 
+  
   •	AI APIs are slow
 
   •	requests can fail randomly
@@ -36,16 +37,22 @@ How the System Works
 Architecture
 
 Client
+
   ↓
 FastAPI API
+
   ↓
 MySQL Database
+
   ↓
 Redis Queue
+
   ↓
 Worker
+
   ↓
 OpenAI API
+
   ↓
 Webhook Notification
 
@@ -155,11 +162,8 @@ Project Structure
 app/
 
 │
-
 ├── database/
-
 │   ├── db.py
-
 │   ├── model.py
 
 │
