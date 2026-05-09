@@ -187,9 +187,7 @@ Project Structure
 app/
 
 │
-
 ├── database/
-
 │   ├── db.py
 
 │   ├── model.py
