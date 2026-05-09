@@ -272,6 +272,7 @@ Metrics:
 GET /metrics
 
 Concepts Demonstrated
+
   This project demonstrates:
 
   •	asynchronous task processing
