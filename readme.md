@@ -10,10 +10,15 @@ The focus of the project is not just AI integration, but building reliable infra
 Problem Being Solved
 
 Calling AI APIs directly from a web request is usually a bad idea in production systems because:
+
 •	AI APIs are slow
+
 •	requests can fail randomly
+
 •	providers enforce rate limits
+
 •	traffic spikes can overload the system
+
 •	failed requests can cause task loss
 
 This project solves that problem by separating the API layer from the AI processing layer using Redis queues and background workers.
