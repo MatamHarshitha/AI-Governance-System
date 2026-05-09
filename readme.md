@@ -38,64 +38,75 @@ Architecture
 
 Client
 
-  ↓
+   ↓
   
 FastAPI API
 
-  ↓
+   ↓
   
 MySQL Database
 
-  ↓
+   ↓
   
 Redis Queue
 
-  ↓
+   ↓
   
 Worker
 
-  ↓
+   ↓
   
 OpenAI API
 
-  ↓
+   ↓
   
 Webhook Notification
 
 Features
 1. Lead Management API
 
-  The API accepts lead information and stores it in MySQL.
+   The API accepts lead information and stores it in MySQL.
 
 2. Redis Queue
 
-  Redis is used as a task queue to decouple API requests from AI processing.
+   Redis is used as a task queue to decouple API requests from AI processing.
 
   This improves:
+  
   •	Scalability
+  
   •	reliability
+  
   •	response time
+  
   •	fault tolerance
 
-Instead of processing AI requests immediately, tasks are queued and processed  asynchronously.
+   Instead of processing AI requests immediately, tasks are queued and processed  asynchronously.
 
 3. Worker-Based Processing
 
-A dedicated worker consumes tasks from Redis and processes them independently.
+   A dedicated worker consumes tasks from Redis and processes them independently.
 
   This allows:
   •	background processing
+  
   •	retry handling
+  
   •	controlled AI execution
+  
   •	better system scalability
 
 4. Worker-Based Processing
 
   A dedicated worker consumes tasks from Redis and processes them independently.
   This allows:
+  
   •	background processing
+  
   •	retry handling
+  
   •	controlled AI execution
+  
   •	better system scalability
 
 5. Retry Mechanism
@@ -103,30 +114,37 @@ A dedicated worker consumes tasks from Redis and processes them independently.
      Temporary AI failures are retried automatically.
 
   The system uses exponential backoff:
+  
   •	first retry → 1 second
+  
   •	second retry → 2 seconds
+  
   •	third retry → 4 seconds
 
 This improves reliability during unstable API conditions.
 
 6. Rate Limiting
 
-The worker uses a custom rate limiter to prevent excessive API calls.
+    The worker uses a custom rate limiter to prevent excessive API calls.
 
-This simulates real-world production environments where providers enforce request limits.
+    This simulates real-world production environments where providers enforce request limits.
 
 7. Metrics Endpoint
 
-  The project exposes operational metrics through:
+    The project exposes operational metrics through:
 
-  GET /metrics
-  This helps monitor:
-  •	queue health
-  •	worker activity
-  •	failures
-  •	processing state
+    GET /metrics
+    This helps monitor:
+   
+    •	queue health
+   
+    •	worker activity
+   
+    •	failures
+   
+    •	processing state
 
-8. Webhook Integration
+9. Webhook Integration
 
   After lead processing completes, the system sends webhook notifications to external services.
   Webhook.site was used during development to test webhook delivery.
