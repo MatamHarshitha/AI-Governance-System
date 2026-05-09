@@ -201,8 +201,9 @@ app/
 │   ├── leads.py
 
 │   ├── metrics.py
-    
-    ├── dashboard.py
+
+│   ├── dashboard.py
+
 │
 
 ├── schema/
@@ -260,6 +261,7 @@ Start Worker
       python -m app.workers.worker
 
 API Endpoints
+
 Create Lead:
 POST /leads
 
@@ -294,6 +296,7 @@ Concepts Demonstrated
 Final Note
 
   The main goal of this project was to build reliable infrastructure around AI workflows rather than building a simple CRUD    application with AI added on top.
+  
   The project focuses heavily on scalability, fault tolerance, asynchronous processing, and production-style backend           architecture.
 
 
