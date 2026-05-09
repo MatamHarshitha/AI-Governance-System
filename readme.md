@@ -71,15 +71,15 @@ Features
 
    Redis is used as a task queue to decouple API requests from AI processing.
 
-  This improves:
+   This improves:
   
-  •	Scalability
+    •	Scalability
   
-  •	reliability
+    •	reliability
   
-  •	response time
+    •	response time
   
-  •	fault tolerance
+    •	fault tolerance
 
    Instead of processing AI requests immediately, tasks are queued and processed  asynchronously.
 
@@ -88,13 +88,14 @@ Features
    A dedicated worker consumes tasks from Redis and processes them independently.
 
   This allows:
-  •	background processing
   
-  •	retry handling
+    •	background processing
   
-  •	controlled AI execution
+    •	retry handling
   
-  •	better system scalability
+    •	controlled AI execution
+  
+    •	better system scalability
 
 4. Worker-Based Processing
 
