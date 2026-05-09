@@ -47,19 +47,19 @@ Webhook Notification
 Features
 1. Lead Management API
 
-    The API accepts lead information and stores it in MySQL.
+The API accepts lead information and stores it in MySQL.
 
 2. Redis Queue
 
-    Redis is used as a task queue to decouple API requests from AI processing.
+Redis is used as a task queue to decouple API requests from AI processing.
 
-    This improves:
-    •	scalability
-    •	reliability
-    •	response time
-    •	fault tolerance
+This improves:
+•	Scalability
+•	reliability
+•	response time
+•	fault tolerance
 
-Instead of processing AI requests immediately, tasks are queued and processed asynchronously.
+Instead of processing AI requests immediately, tasks are queued and processed  asynchronously.
 
 3. Worker-Based Processing
 
@@ -74,7 +74,6 @@ This allows:
 4. Worker-Based Processing
 
 A dedicated worker consumes tasks from Redis and processes them independently.
-
 This allows:
 •	background processing
 •	retry handling
@@ -83,7 +82,7 @@ This allows:
 
 5. Retry Mechanism
 
-Temporary AI failures are retried automatically.
+       Temporary AI failures are retried automatically.
 
 The system uses exponential backoff:
 •	first retry → 1 second
@@ -150,62 +149,35 @@ Webhook Requests:
 Project Structure
 app/
 │
-
 ├── database/
-
 │   ├── db.py
-
 │   ├── model.py
-
 │
 ├── api/routes/
-
 │   ├── leads.py
-
 │   ├── metrics.py
-    
     ├── dashboard.py
 │
-
 ├── schema/
-
 │   ├── lead.py
-
 │
-
 ├── queue/
-
 │   ├── client.py
-
 │   ├── producer.py
-
 │
 ├── workers/
-
 │   ├── worker.py
-
 │   ├── retry.py
-
 │   ├── ratelimiter.py
-
 │
-
 ├── services/
-
 │   ├── aiservice.py
-
 │   ├── webhook.py
-
 │
-
 ├── main.py
-
 ├── .env
-
 ├── readme.md
-
 ├── requirements.txt
-
 ├── .gitignore
 
 
@@ -245,4 +217,5 @@ Final Note
 
 The main goal of this project was to build reliable infrastructure around AI workflows rather than building a simple CRUD application with AI added on top.
 The project focuses heavily on scalability, fault tolerance, asynchronous processing, and production-style backend architecture.
+
 
