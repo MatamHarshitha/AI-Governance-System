@@ -39,21 +39,27 @@ Architecture
 Client
 
   ↓
+  
 FastAPI API
 
   ↓
+  
 MySQL Database
 
   ↓
+  
 Redis Queue
 
   ↓
+  
 Worker
 
   ↓
+  
 OpenAI API
 
   ↓
+  
 Webhook Notification
 
 Features
@@ -162,8 +168,11 @@ Project Structure
 app/
 
 │
+
 ├── database/
+
 │   ├── db.py
+
 │   ├── model.py
 
 │
