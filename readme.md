@@ -261,6 +261,8 @@ Start Worker
       python -m app.workers.worker
 
 
+
+
 API Endpoints
 
 Create Lead:
@@ -271,6 +273,8 @@ GET /leads
 
 Metrics:
 GET /metrics
+
+
 
 
 Concepts Demonstrated
