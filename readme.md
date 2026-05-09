@@ -99,14 +99,14 @@ Features
 
 4. Worker-Based Processing
 
-  A dedicated worker consumes tasks from Redis and processes them independently.
-   This allows:
+    A dedicated worker consumes tasks from Redis and processes them independently.
+     This allows:
   
-   •	background processing
+     •	background processing
   
-   •	retry handling
+     •	retry handling
   
-   •	controlled AI execution
+     •	controlled AI execution
   
    •	better system scalability
 
