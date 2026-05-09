@@ -11,15 +11,15 @@ Problem Being Solved
 
 Calling AI APIs directly from a web request is usually a bad idea in production systems because:
 
-•	AI APIs are slow
+  •	AI APIs are slow
 
-•	requests can fail randomly
+  •	requests can fail randomly
 
-•	providers enforce rate limits
+  •	providers enforce rate limits
 
-•	traffic spikes can overload the system
+  •	traffic spikes can overload the system
 
-•	failed requests can cause task loss
+  •	failed requests can cause task loss
 
 This project solves that problem by separating the API layer from the AI processing layer using Redis queues and background workers.
 
@@ -52,17 +52,17 @@ Webhook Notification
 Features
 1. Lead Management API
 
-The API accepts lead information and stores it in MySQL.
+  The API accepts lead information and stores it in MySQL.
 
 2. Redis Queue
 
-Redis is used as a task queue to decouple API requests from AI processing.
+  Redis is used as a task queue to decouple API requests from AI processing.
 
-This improves:
-•	Scalability
-•	reliability
-•	response time
-•	fault tolerance
+  This improves:
+  •	Scalability
+  •	reliability
+  •	response time
+  •	fault tolerance
 
 Instead of processing AI requests immediately, tasks are queued and processed  asynchronously.
 
@@ -70,29 +70,29 @@ Instead of processing AI requests immediately, tasks are queued and processed  a
 
 A dedicated worker consumes tasks from Redis and processes them independently.
 
-This allows:
-•	background processing
-•	retry handling
-•	controlled AI execution
-•	better system scalability
+  This allows:
+  •	background processing
+  •	retry handling
+  •	controlled AI execution
+  •	better system scalability
 
 4. Worker-Based Processing
 
-A dedicated worker consumes tasks from Redis and processes them independently.
-This allows:
-•	background processing
-•	retry handling
-•	controlled AI execution
-•	better system scalability
+  A dedicated worker consumes tasks from Redis and processes them independently.
+  This allows:
+  •	background processing
+  •	retry handling
+  •	controlled AI execution
+  •	better system scalability
 
 5. Retry Mechanism
 
-       Temporary AI failures are retried automatically.
+     Temporary AI failures are retried automatically.
 
-The system uses exponential backoff:
-•	first retry → 1 second
-•	second retry → 2 seconds
-•	third retry → 4 seconds
+  The system uses exponential backoff:
+  •	first retry → 1 second
+  •	second retry → 2 seconds
+  •	third retry → 4 seconds
 
 This improves reliability during unstable API conditions.
 
@@ -104,19 +104,19 @@ This simulates real-world production environments where providers enforce reques
 
 7. Metrics Endpoint
 
-The project exposes operational metrics through:
+  The project exposes operational metrics through:
 
-GET /metrics
-This helps monitor:
-•	queue health
-•	worker activity
-•	failures
-•	processing state
+  GET /metrics
+  This helps monitor:
+  •	queue health
+  •	worker activity
+  •	failures
+  •	processing state
 
 8. Webhook Integration
 
-After lead processing completes, the system sends webhook notifications to external services.
-Webhook.site was used during development to test webhook delivery.
+  After lead processing completes, the system sends webhook notifications to external services.
+  Webhook.site was used during development to test webhook delivery.
 
 Tech Stack
 Backend Framework:
@@ -153,46 +153,79 @@ Webhook Requests:
 
 Project Structure
 app/
+
 │
+
 ├── database/
+
 │   ├── db.py
+
 │   ├── model.py
+
 │
+
 ├── api/routes/
+
 │   ├── leads.py
+
 │   ├── metrics.py
+    
     ├── dashboard.py
 │
+
 ├── schema/
+
 │   ├── lead.py
+
 │
+
 ├── queue/
+
 │   ├── client.py
+
 │   ├── producer.py
+
 │
+
 ├── workers/
+
 │   ├── worker.py
+
 │   ├── retry.py
+
 │   ├── ratelimiter.py
+
 │
+
 ├── services/
+
 │   ├── aiservice.py
+
 │   ├── webhook.py
+
 │
+
 ├── main.py
+
 ├── .env
+
 ├── readme.md
+
 ├── requirements.txt
+
 ├── .gitignore
 
 
 Running the Project
 Start Redis
-docker run -d -p 6379:6379 redis
+        
+    docker run -d -p 6379:6379 redis
 Start FastAPI
-uvicorn app.main:app --reload
+  
+    uvicorn app.main:app --reload
 Start Worker
-python -m app.workers.worker
+      
+      python -m app.workers.worker
 
 API Endpoints
 Create Lead:
@@ -205,22 +238,22 @@ Metrics:
 GET /metrics
 
 Concepts Demonstrated
-This project demonstrates:
+  This project demonstrates:
 
-•	asynchronous task processing
-•	distributed worker systems
-•	AI orchestration
-•	retry handling
-•	rate limiting
-•	queue-based architecture
-•	webhook communication
-•	observability and monitoring
-•	production-style backend design
+  •	asynchronous task processing
+  •	distributed worker systems
+  •	AI orchestration
+  •	retry handling
+  •	rate limiting
+  •	queue-based architecture
+  •	webhook communication
+  •	observability and monitoring
+  •	production-style backend design
 
 
 Final Note
 
-The main goal of this project was to build reliable infrastructure around AI workflows rather than building a simple CRUD application with AI added on top.
-The project focuses heavily on scalability, fault tolerance, asynchronous processing, and production-style backend architecture.
+  The main goal of this project was to build reliable infrastructure around AI workflows rather than building a simple CRUD    application with AI added on top.
+  The project focuses heavily on scalability, fault tolerance, asynchronous processing, and production-style backend           architecture.
 
 
