@@ -47,17 +47,17 @@ Webhook Notification
 Features
 1. Lead Management API
 
-The API accepts lead information and stores it in MySQL.
+    The API accepts lead information and stores it in MySQL.
 
 2. Redis Queue
 
-Redis is used as a task queue to decouple API requests from AI processing.
+    Redis is used as a task queue to decouple API requests from AI processing.
 
-This improves:
-•	scalability
-•	reliability
-•	response time
-•	fault tolerance
+    This improves:
+    •	scalability
+    •	reliability
+    •	response time
+    •	fault tolerance
 
 Instead of processing AI requests immediately, tasks are queued and processed asynchronously.
 
