@@ -87,68 +87,68 @@ Features
 
    A dedicated worker consumes tasks from Redis and processes them independently.
 
-  This allows:
+    This allows:
   
-    •	background processing
+     •	background processing
   
-    •	retry handling
+     •	retry handling
   
-    •	controlled AI execution
+     •	controlled AI execution
   
-    •	better system scalability
+     •	better system scalability
 
 4. Worker-Based Processing
 
   A dedicated worker consumes tasks from Redis and processes them independently.
-  This allows:
+   This allows:
   
-  •	background processing
+   •	background processing
   
-  •	retry handling
+   •	retry handling
   
-  •	controlled AI execution
+   •	controlled AI execution
   
-  •	better system scalability
+   •	better system scalability
 
 5. Retry Mechanism
 
      Temporary AI failures are retried automatically.
 
-  The system uses exponential backoff:
+     The system uses exponential backoff:
   
-  •	first retry → 1 second
+     •	first retry → 1 second
   
-  •	second retry → 2 seconds
+     •	second retry → 2 seconds
   
-  •	third retry → 4 seconds
+     •	third retry → 4 seconds
 
-This improves reliability during unstable API conditions.
+    This improves reliability during unstable API conditions.
 
 6. Rate Limiting
 
-    The worker uses a custom rate limiter to prevent excessive API calls.
+      The worker uses a custom rate limiter to prevent excessive API calls.
 
-    This simulates real-world production environments where providers enforce request limits.
+      This simulates real-world production environments where providers enforce request limits.
 
 7. Metrics Endpoint
 
-    The project exposes operational metrics through:
+      The project exposes operational metrics through:
 
-    GET /metrics
-    This helps monitor:
+     GET /metrics
+     This helps monitor:
    
-    •	queue health
+      •	queue health
    
-    •	worker activity
+      •	worker activity
    
-    •	failures
+      •	failures
    
-    •	processing state
+      •	processing state
 
-9. Webhook Integration
+8. Webhook Integration
 
-  After lead processing completes, the system sends webhook notifications to external services.
-  Webhook.site was used during development to test webhook delivery.
+    After lead processing completes, the system sends webhook notifications to external services.
+    Webhook.site was used during development to test webhook delivery.
 
 Tech Stack
 Backend Framework:
@@ -273,13 +273,21 @@ Concepts Demonstrated
   This project demonstrates:
 
   •	asynchronous task processing
+  
   •	distributed worker systems
+  
   •	AI orchestration
+  
   •	retry handling
+
   •	rate limiting
+  
   •	queue-based architecture
+  
   •	webhook communication
+  
   •	observability and monitoring
+  
   •	production-style backend design
 
 
